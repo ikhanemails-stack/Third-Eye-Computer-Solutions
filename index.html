@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Imran - IT Professional, Web Developer & POS System Developer in Bahrain. Freelance projects: websites, CCTV, ELV, networking, POS systems. Contact: +973 3355 7424">
+<meta name="description" content="Ikhan - IT Professional, Web Developer & POS System Developer in Bahrain. Freelance projects: websites, CCTV, ELV, networking, POS systems. Contact: +973 3355 7424">
 <meta name="keywords" content="IT professional Bahrain, web developer Bahrain, POS system Bahrain, CCTV Bahrain, freelance developer, ELV systems">
-<title>Imran | IT Pro · Web Dev · POS Developer · Bahrain</title>
+<title>Ikhan | IT Pro · Web Dev · POS Developer · Bahrain</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -258,6 +258,13 @@ section{padding:90px 0}
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .reveal.in-view{opacity:1;transform:translateY(0)}
+
+/* 3D TILT ON PROJECT CARDS */
+.proj-card{transform-style:preserve-3d;will-change:transform}
+
+/* CURSOR GLOW (hero) */
+.hero-glow{position:absolute;width:420px;height:420px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(99,102,241,.14),transparent 70%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;z-index:0}
+.hero:hover .hero-glow{opacity:1}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .pf-val{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--teal);line-height:1}
 .pf-lbl{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
@@ -337,7 +344,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
 
 <nav id="navbar">
   <div class="nc">
-    <a href="#home" class="nav-logo">Imran<span>.</span></a>
+    <a href="#home" class="nav-logo">Ikhan<span>.</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -355,10 +362,11 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
 <section class="hero" id="home">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-particles" id="particles"></div>
+  <div class="hero-glow" id="heroGlow"></div>
   <div class="hero-c">
     <div class="hero-text">
       <div class="avail-badge"><span class="dot"></span>Available for Freelance — Bahrain 🇧🇭</div>
-      <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Imran</span></h1>
+      <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Ikhan</span></h1>
       <div class="hero-role"><span id="tw">Web Developer</span></div>
       <p class="hero-desc">IT specialist, web developer and POS system builder based in Bahrain with 5+ years of hands-on experience delivering real projects for real clients — from custom websites to complete business management systems.</p>
       <div class="freelance-banner">
@@ -370,12 +378,12 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
       </div>
       <div class="hero-btns">
         <a href="#projects" class="btn-main"><i class="fas fa-briefcase"></i>View My Work</a>
-        <a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>WhatsApp Me</a>
+        <a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i>WhatsApp Me</a>
       </div>
       <div class="hero-stats">
-        <div class="h-stat"><h3>5+</h3><p>Years Exp.</p></div>
-        <div class="h-stat"><h3>10+</h3><p>Projects</p></div>
-        <div class="h-stat"><h3>3</h3><p>Companies</p></div>
+        <div class="h-stat"><h3 data-count="5" data-suffix="+">0</h3><p>Years Exp.</p></div>
+        <div class="h-stat"><h3 data-count="10" data-suffix="+">0</h3><p>Projects</p></div>
+        <div class="h-stat"><h3 data-count="3" data-suffix="">0</h3><p>Companies</p></div>
         <div class="h-stat"><h3>BH</h3><p>Based In</p></div>
       </div>
     </div>
@@ -645,7 +653,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
           <div class="price">20 BHD <span>/ month</span></div>
           <div class="offer-label">🔥 Current Offer — All Modules Included</div>
         </div>
-        <a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20am%20interested%20in%20the%20POS%20system%20for%20my%20business" target="_blank" class="btn-main" style="text-decoration:none"><i class="fab fa-whatsapp"></i>Get This POS</a>
+        <a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20am%20interested%20in%20the%20POS%20system%20for%20my%20business" target="_blank" class="btn-main" style="text-decoration:none"><i class="fab fa-whatsapp"></i>Get This POS</a>
       </div>
     </div>
     <div class="pos-visual">
@@ -725,7 +733,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
         <li><i class="fas fa-check"></i>GitHub Pages hosting</li>
         <li><i class="fas fa-check"></i>1 month free support</li>
       </ul>
-      <a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" class="price-btn">Get Website →</a>
+      <a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20need%20a%20website%20for%20my%20business" target="_blank" class="price-btn">Get Website →</a>
     </div>
     <!-- POS SYSTEM -->
     <div class="price-card featured">
@@ -743,7 +751,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
         <li><i class="fas fa-check"></i>Access from anywhere</li>
         <li><i class="fas fa-check"></i>Sales reports & analytics</li>
       </ul>
-      <a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20am%20interested%20in%20the%20POS%20system%20for%20my%20business" target="_blank" class="price-btn">Get POS System →</a>
+      <a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20am%20interested%20in%20the%20POS%20system%20for%20my%20business" target="_blank" class="price-btn">Get POS System →</a>
     </div>
     <!-- IT SERVICES -->
     <div class="price-card">
@@ -760,7 +768,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
         <li><i class="fas fa-check"></i>Fire alarm systems</li>
         <li><i class="fas fa-check"></i>Annual maintenance (AMC)</li>
       </ul>
-      <a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20need%20IT%20or%20security%20services" target="_blank" class="price-btn" style="background:linear-gradient(135deg,var(--teal),#059669)">Get Quote →</a>
+      <a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20need%20IT%20or%20security%20services" target="_blank" class="price-btn" style="background:linear-gradient(135deg,var(--teal),#059669)">Get Quote →</a>
     </div>
   </div>
 </div></section>
@@ -819,7 +827,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
   </div>
   <div class="contact-grid">
     <div class="cinfo">
-      <h3>Imran — IT Pro & Developer</h3>
+      <h3>Ikhan — IT Pro & Developer</h3>
       <p>Available for freelance website projects, POS system builds, IT consultation and full-time IT roles in Bahrain. I respond fast and deliver quality work — let's talk!</p>
       <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Location</h4><p>Bahrain 🇧🇭 — serving Bahrain & India remotely</p></div></div>
       <div class="ci-item"><div class="ci-icon" style="background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.25);color:#25d366"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp (Best Way to Reach Me)</h4><p><a href="https://wa.me/97333557424" target="_blank">+973 3355 7424</a> — usually replies within hours</p></div></div>
@@ -857,7 +865,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
 
 <footer><div class="container">
   <div class="ft-bottom">
-    <p>&copy; 2026 Imran — IT Professional & Developer, Bahrain | <a href="tel:+97333557424" style="color:var(--a2);text-decoration:none">+973 3355 7424</a></p>
+    <p>&copy; 2026 Ikhan — IT Professional & Developer, Bahrain | <a href="tel:+97333557424" style="color:var(--a2);text-decoration:none">+973 3355 7424</a></p>
     <div style="display:flex;align-items:center;gap:20px">
       <div class="ft-social">
         <a href="https://wa.me/97333557424" target="_blank" class="ft-soc wa"><i class="fab fa-whatsapp"></i></a>
@@ -871,7 +879,7 @@ footer{background:#020409;border-top:1px solid rgba(99,102,241,.12);padding:40px
   </div>
 </div></footer>
 
-<a href="https://wa.me/97333557424?text=Hi%20Imran%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/97333557424?text=Hi%20Ikhan%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
 <button id="btt"><i class="fas fa-arrow-up"></i></button>
 
 <script>
@@ -945,7 +953,7 @@ document.getElementById('portForm').addEventListener('submit',function(e){
   var n=document.getElementById('pn').value,p=document.getElementById('pp').value,s=document.getElementById('ps').options[document.getElementById('ps').selectedIndex].text,m=document.getElementById('pm').value||'No details';
   var btn=document.getElementById('pBtn'),orig=btn.innerHTML;
   btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';btn.disabled=true;
-  var msg="Hi Imran!%0A%0A*Portfolio Inquiry*%0A----%0A*Name:* "+encodeURIComponent(n)+"%0A*Contact:* "+encodeURIComponent(p)+"%0A*Service:* "+encodeURIComponent(s)+"%0A*Details:* "+encodeURIComponent(m)+"%0A----";
+  var msg="Hi Ikhan!%0A%0A*Portfolio Inquiry*%0A----%0A*Name:* "+encodeURIComponent(n)+"%0A*Contact:* "+encodeURIComponent(p)+"%0A*Service:* "+encodeURIComponent(s)+"%0A*Details:* "+encodeURIComponent(m)+"%0A----";
   setTimeout(function(){
     window.open("https://wa.me/97333557424?text="+msg,"_blank");
     e.target.reset();
@@ -992,6 +1000,58 @@ try{
     if(e.key==='ArrowLeft')changeShot(-1);
     if(e.key==='ArrowRight')changeShot(1);
   });
+}catch(e){}
+
+// COUNT-UP HERO STATS
+try{
+  var countEls=document.querySelectorAll('.h-stat h3[data-count]');
+  var countDone=false;
+  function runCounts(){
+    if(countDone)return;
+    countDone=true;
+    countEls.forEach(function(el){
+      var target=parseInt(el.getAttribute('data-count'),10);
+      var suffix=el.getAttribute('data-suffix')||'';
+      var dur=1300,start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        el.textContent=Math.floor(p*target)+suffix;
+        if(p<1)requestAnimationFrame(step);
+        else el.textContent=target+suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  setTimeout(runCounts,900);
+}catch(e){}
+
+// 3D TILT ON PROJECT CARDS
+try{
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=e.clientX-r.left,y=e.clientY-r.top;
+      var rx=((y/r.height)-0.5)*-7;
+      var ry=((x/r.width)-0.5)*7;
+      card.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='perspective(900px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+}catch(e){}
+
+// HERO CURSOR GLOW
+try{
+  var heroEl=document.querySelector('.hero'),glowEl=document.getElementById('heroGlow');
+  if(heroEl&&glowEl){
+    heroEl.addEventListener('mousemove',function(e){
+      var r=heroEl.getBoundingClientRect();
+      glowEl.style.left=(e.clientX-r.left)+'px';
+      glowEl.style.top=(e.clientY-r.top)+'px';
+    });
+  }
 }catch(e){}
 </script>
 </body>
