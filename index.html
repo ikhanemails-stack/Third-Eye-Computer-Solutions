@@ -49,14 +49,14 @@ nav.scrolled{background:rgba(0,13,26,.97);backdrop-filter:blur(30px);border-bott
 .hero-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--a) 30%,var(--a2) 50%,var(--a) 70%,transparent 100%);animation:hscan 6s linear infinite;opacity:.3;pointer-events:none}
 @keyframes hscan{0%{top:-1px}100%{top:101%}}
 /* FLASH OFFERS ROTATOR (hero top-right) */
-.offer-flash{position:absolute;top:104px;right:4%;z-index:6;background:rgba(0,13,26,.92);border:1px solid rgba(245,158,11,.45);border-radius:16px;padding:14px 20px 15px;backdrop-filter:blur(12px);cursor:pointer;text-decoration:none;display:block;animation:sflt 4s ease-in-out infinite;box-shadow:0 0 34px rgba(245,158,11,.16);transition:all .3s;max-width:320px}
+.offer-flash{position:absolute;top:104px;right:4%;z-index:6;background:rgba(0,13,26,.92);border:1px solid rgba(245,158,11,.45);border-radius:18px;padding:22px 30px 24px;backdrop-filter:blur(12px);cursor:pointer;text-decoration:none;display:block;animation:sflt 4s ease-in-out infinite;box-shadow:0 0 34px rgba(245,158,11,.16);transition:all .3s;max-width:440px;min-width:340px}
 .offer-flash:hover{border-color:var(--gold);box-shadow:0 0 44px rgba(245,158,11,.3);transform:translateY(-3px)}
-.of-label{font-size:10px;letter-spacing:2.5px;color:var(--gold);font-weight:800;display:flex;gap:7px;align-items:center;margin-bottom:7px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
+.of-label{font-size:12px;letter-spacing:2.5px;color:var(--gold);font-weight:800;display:flex;gap:8px;align-items:center;margin-bottom:10px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
 .of-label i{animation:flame 1s ease-in-out infinite alternate}
 @keyframes flame{0%{transform:scale(1);filter:drop-shadow(0 0 3px rgba(245,158,11,.6))}100%{transform:scale(1.25);filter:drop-shadow(0 0 9px rgba(245,158,11,.9))}}
-.of-text{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;min-height:22px;transition:opacity .35s,transform .35s;display:block}
+.of-text{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#fff;min-height:28px;transition:opacity .35s,transform .35s;display:block;line-height:1.3}
 .of-text.fade{opacity:0;transform:translateY(6px)}
-.of-cta{font-size:10.5px;color:var(--a);font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-top:7px;display:inline-flex;align-items:center;gap:6px}
+.of-cta{font-size:13px;color:var(--a);font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-top:12px;display:inline-flex;align-items:center;gap:8px}
 .of-cta i{transition:transform .3s}
 .offer-flash:hover .of-cta i{transform:translateX(4px)}
 @media(max-width:1250px){.offer-flash{display:none}}
@@ -165,6 +165,10 @@ section{padding:64px 0}
 .prod-card:hover::after{width:60%}
 .prod-card i{font-size:32px;color:var(--a);margin-bottom:14px;display:block;filter:drop-shadow(0 0 8px rgba(0,255,229,.3));transition:all .35s}
 .prod-card:hover i{filter:drop-shadow(0 0 16px rgba(0,255,229,.6));transform:scale(1.1)}
+.prod-visual{width:100%;height:88px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative;overflow:hidden}
+.prod-visual::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.08) 0,transparent 40%),repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 2px,transparent 2px 12px)}
+.prod-visual i{font-size:30px;color:#fff;margin:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));position:relative;z-index:1}
+.prod-card:hover .prod-visual i{transform:scale(1.12)}
 .prod-card h4{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;margin-bottom:7px}
 .prod-card p{font-size:12px;color:var(--gray);line-height:1.6}
 
@@ -205,6 +209,13 @@ section{padding:64px 0}
 .proj-card.hidden{display:none}
 .proj-card:hover{border-color:rgba(0,255,229,.25);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
 .proj-preview{height:170px;position:relative;display:flex;align-items:center;justify-content:center}
+.proj-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.proj-photo+*{position:relative;z-index:1}
+.proj-preview:has(.proj-photo)::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,13,26,.35),rgba(0,13,26,.85));z-index:0}
+.prod-visual{position:relative}
+.prod-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px}
+.prod-visual:has(.prod-photo)::before{content:'';position:absolute;inset:0;background:rgba(0,13,26,.4);border-radius:12px;z-index:0}
+.prod-visual i{position:relative}
 .proj-type-badge{position:absolute;top:12px;right:12px;padding:5px 12px;border-radius:50px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
 .proj-body{padding:22px}
 .proj-body h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
@@ -356,8 +367,8 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
       <div class="logo-txt"><span class="n">Third Eye CS</span><span class="s">Bahrain IT Solutions</span></div>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#projects">Live Projects</a></li><li><a href="#offers">Offers</a></li>
+      <li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#services">Services</a></li><li><a href="#products">Products</a></li>
       <li><a href="#why">Why Us</a></li><li><a href="#contact">Contact</a></li>
     </ul>
@@ -387,7 +398,7 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
       <div class="hero-btns">
         <a href="#offers" class="btn-c"><i class="fas fa-tags"></i>View Offers & Pricing</a>
         <a href="#projects" class="btn-o"><i class="fas fa-folder-open"></i>Live Projects</a>
-        <a href="tel:+97333557424" class="btn-o"><i class="fas fa-phone"></i>3355 7424</a>
+        <a href="https://api.whatsapp.com/send/?phone=97333557424&type=phone_number&app_absent=0&text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn-o"><i class="fab fa-whatsapp"></i>3355 7424</a>
       </div>
       <div class="hero-stats">
         <div class="h-stat"><h3 class="counter" data-target="500">0</h3><p>Projects Done</p></div>
@@ -410,7 +421,7 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
         </div>
         <div class="ep-footer">
           <div class="ceo-info"><div class="nm">Imran Khan</div><div class="rl">Project Manager</div></div>
-          <a href="tel:+97333557424" class="call-badge"><i class="fas fa-phone"></i>3355 7424</a>
+          <a href="https://api.whatsapp.com/send/?phone=97333557424&type=phone_number&app_absent=0&text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="call-badge"><i class="fab fa-whatsapp"></i>3355 7424</a>
         </div>
       </div>
     </div>
@@ -429,64 +440,6 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
     <span class="tk-item"><i class="fas fa-globe-asia"></i>Bahrain · GCC · India · Worldwide<span class="dot"></span></span>
   </div>
 </div>
-<!-- ABOUT -->
-<section class="about" id="about"><div class="container"><div class="about-grid">
-  <div class="about-stats">
-    <div class="astat"><div class="num">500+</div><div class="lbl">Projects</div></div>
-    <div class="astat gld"><div class="num">15+</div><div class="lbl">Services</div></div>
-    <div class="astat grn"><div class="num">10+</div><div class="lbl">Years</div></div>
-    <div class="astat"><div class="num">24/7</div><div class="lbl">Support</div></div>
-  </div>
-  <div class="about-content">
-    <div class="sec-lbl">About Third Eye</div>
-    <h2 class="sec-title">Your Complete <span>IT Partner</span> in Bahrain</h2>
-    <p>Third Eye Computer Solutions is a leading IT and security systems company based in the Kingdom of Bahrain, founded by a team of industry partners including <strong style="color:#fff">Seemon</strong>. We provide comprehensive technology solutions to businesses, government entities, hotels, schools and commercial properties across Bahrain.</p>
-    <p>Our expertise spans CCTV surveillance, ELV systems, structured cabling, networking, access control, fire alarm systems, website & POS development and full-range IT support — all delivered with a commitment to quality, reliability and excellent after-sales care, led on the ground by our Project Manager <strong style="color:#fff">Imran Khan</strong>.</p>
-    <div class="feat-grid">
-      <div class="feat"><i class="fas fa-certificate"></i>Licensed & Certified</div>
-      <div class="feat"><i class="fas fa-headset"></i>24/7 Support</div>
-      <div class="feat"><i class="fas fa-tools"></i>Expert Technicians</div>
-      <div class="feat"><i class="fas fa-handshake"></i>Trusted Partners</div>
-    </div>
-  </div>
-</div></div></section>
-<!-- SERVICES -->
-
-<!-- ===== PORTFOLIO / PROJECT MANAGER ===== -->
-<section class="pm-sec" id="portfolio"><div class="container">
-  <div class="pm-grid">
-    <div class="pm-avatar-area">
-      <div class="pm-avatar-wrap">
-        <div class="pm-ring1"></div><div class="pm-ring2"></div>
-        <div class="pm-av">IK</div>
-        <div class="pm-sb pm-sb1"><div class="pm-sb-d" style="background:#22c55e;box-shadow:0 0 8px #22c55e"></div>Web Dev</div>
-        <div class="pm-sb pm-sb2"><div class="pm-sb-d" style="background:var(--a);box-shadow:0 0 8px var(--a)"></div>POS Systems</div>
-        <div class="pm-sb pm-sb3"><div class="pm-sb-d" style="background:var(--gold);box-shadow:0 0 8px var(--gold)"></div>CCTV & ELV</div>
-        <div class="pm-sb pm-sb4"><div class="pm-sb-d" style="background:#818cf8;box-shadow:0 0 8px #818cf8"></div>Networking</div>
-      </div>
-    </div>
-    <div class="pm-content">
-      <div class="sec-lbl">Meet Our Project Manager</div>
-      <h2 class="sec-title">Imran Khan <span>— Project Manager</span></h2>
-      <div class="pm-role">Project Manager · <span id="twpm"></span></div>
-      <p style="color:var(--gray);font-size:15px;line-height:1.9;max-width:560px">Imran Khan works full-time at Third Eye Computer Solutions as Project Manager & Developer, overseeing project delivery for CCTV, ELV, networking and IT installations across Bahrain — while also building custom websites and POS systems for clients as part of Third Eye's development arm.</p>
-      <div class="pm-badges">
-        <div class="pm-badge"><i class="fas fa-check-circle"></i>Ready for Freelance Projects</div>
-        <div class="pm-badge"><i class="fas fa-globe-asia"></i>Bahrain · GCC · India</div>
-        <div class="pm-badge"><i class="fas fa-briefcase"></i>Company-Standard Delivery</div>
-      </div>
-      <div class="hero-btns">
-        <a href="https://api.whatsapp.com/send/?phone=97333557424&type=phone_number&app_absent=0&text=Hello%20Imran%2C%20I%20would%20like%20to%20discuss%20a%20freelance%20project" target="_blank" class="btn-c"><i class="fab fa-whatsapp"></i>Discuss a Project</a>
-        <a href="#projects" class="btn-o"><i class="fas fa-folder-open"></i>View Live Projects</a>
-      </div>
-      <div class="pm-stats">
-        <div class="pm-stat"><h3 class="counter" data-target="40">0</h3><p>Projects Delivered</p></div>
-        <div class="pm-stat"><h3 class="counter" data-target="6">0</h3><p>Core Skills</p></div>
-        <div class="pm-stat"><h3 class="counter" data-target="3">0</h3><p>Countries Served</p></div>
-      </div>
-    </div>
-  </div>
-</div></section>
 <!-- ===== LIVE PROJECTS ===== -->
 <section class="proj-sec" id="projects"><div class="container">
   <div style="text-align:center;margin-bottom:20px">
@@ -501,29 +454,25 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
     <button class="pf-btn" onclick="filterProj('network',this)">Networking</button>
   </div>
   <div class="proj-grid">
-    <!-- WEBSITE -->
+    <!-- AS AUTOMATION WEBSITE -->
     <div class="proj-card" data-cat="web">
-      <div class="proj-preview" style="background:linear-gradient(135deg,#001428,#00304a)">
-        <div style="text-align:center">
-          <i class="fas fa-eye" style="font-size:40px;color:var(--a);filter:drop-shadow(0 0 10px rgba(0,255,229,.5))"></i>
-          <div style="font-size:14px;font-weight:700;color:var(--a);margin-top:10px">thirdeye.solutions</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">You are viewing it right now!</div>
-        </div>
-        <div class="proj-type-badge" style="background:rgba(0,255,229,.85);color:#001428">Website</div>
+      <div class="proj-preview" style="background:linear-gradient(135deg,#001428,#1a0a30);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <i class="fas fa-robot" style="font-size:40px;color:#a78bfa;filter:drop-shadow(0 0 10px rgba(167,139,250,.5))"></i>
+        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#a78bfa">AS Automation</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Business Automation Website</div></div>
+        <div class="proj-type-badge" style="background:rgba(167,139,250,.9);color:#1a0a30">Website · Live</div>
       </div>
       <div class="proj-body">
-        <h3>Third Eye Company Website</h3>
-        <p>The complete company website for Third Eye Computer Solutions Bahrain — the very site you are browsing now. Built fully in-house with an animated dark tech design, it presents all services, live projects and pricing, and converts every visitor into a WhatsApp inquiry in one tap.</p>
+        <h3>AS Automation — Company Website</h3>
+        <p>A modern, fully responsive business website built and deployed for AS Automation — presenting the company's automation services with a clean animated design, clear service sections and direct WhatsApp contact, so visitors can reach the business in one tap from any device.</p>
         <ul class="proj-feats">
-          <li>Animated modern dark design</li><li>Responsive — mobile & desktop</li>
-          <li>Offers & pricing section</li><li>Live project showcase</li>
-          <li>WhatsApp inquiry form</li><li>Click-to-call & floating chat</li>
-          <li>SEO-friendly structure</li><li>Fast single-file loading</li>
+          <li>Responsive on all devices</li><li>Animated modern design</li>
+          <li>Service showcase sections</li><li>WhatsApp contact integration</li>
+          <li>Fast static hosting</li><li>SEO-friendly structure</li>
         </ul>
-        <div class="proj-tags"><span class="p-tag">HTML/CSS</span><span class="p-tag">JavaScript</span><span class="p-tag">Responsive</span><span class="p-tag">SEO</span></div>
+        <div class="proj-tags"><span class="p-tag">HTML/CSS/JS</span><span class="p-tag">Responsive</span><span class="p-tag">GitHub Pages</span></div>
         <div class="proj-foot">
-          <span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Live — This Site</span>
-          <a href="#home" class="proj-live"><i class="fas fa-eye"></i>You're On It</a>
+          <span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Live</span>
+          <a href="https://ikhanemails-stack.github.io/AS-Automation-New/" target="_blank" rel="noopener" class="proj-live"><i class="fas fa-external-link-alt"></i>Visit Website</a>
         </div>
       </div>
     </div>
@@ -556,31 +505,36 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
         </div>
       </div>
     </div>
-    <!-- AS AUTOMATION WEBSITE -->
+    <!-- WEBSITE -->
     <div class="proj-card" data-cat="web">
-      <div class="proj-preview" style="background:linear-gradient(135deg,#001428,#1a0a30);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
-        <i class="fas fa-robot" style="font-size:40px;color:#a78bfa;filter:drop-shadow(0 0 10px rgba(167,139,250,.5))"></i>
-        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#a78bfa">AS Automation</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Business Automation Website</div></div>
-        <div class="proj-type-badge" style="background:rgba(167,139,250,.9);color:#1a0a30">Website · Live</div>
+      <div class="proj-preview" style="background:linear-gradient(135deg,#001428,#00304a)">
+        <div style="text-align:center">
+          <i class="fas fa-eye" style="font-size:40px;color:var(--a);filter:drop-shadow(0 0 10px rgba(0,255,229,.5))"></i>
+          <div style="font-size:14px;font-weight:700;color:var(--a);margin-top:10px">thirdeye.solutions</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">You are viewing it right now!</div>
+        </div>
+        <div class="proj-type-badge" style="background:rgba(0,255,229,.85);color:#001428">Website</div>
       </div>
       <div class="proj-body">
-        <h3>AS Automation — Company Website</h3>
-        <p>A modern, fully responsive business website built and deployed for AS Automation — presenting the company's automation services with a clean animated design, clear service sections and direct WhatsApp contact, so visitors can reach the business in one tap from any device.</p>
+        <h3>Third Eye Company Website</h3>
+        <p>The complete company website for Third Eye Computer Solutions Bahrain — the very site you are browsing now. Built fully in-house with an animated dark tech design, it presents all services, live projects and pricing, and converts every visitor into a WhatsApp inquiry in one tap.</p>
         <ul class="proj-feats">
-          <li>Responsive on all devices</li><li>Animated modern design</li>
-          <li>Service showcase sections</li><li>WhatsApp contact integration</li>
-          <li>Fast static hosting</li><li>SEO-friendly structure</li>
+          <li>Animated modern dark design</li><li>Responsive — mobile & desktop</li>
+          <li>Offers & pricing section</li><li>Live project showcase</li>
+          <li>WhatsApp inquiry form</li><li>Click-to-call & floating chat</li>
+          <li>SEO-friendly structure</li><li>Fast single-file loading</li>
         </ul>
-        <div class="proj-tags"><span class="p-tag">HTML/CSS/JS</span><span class="p-tag">Responsive</span><span class="p-tag">GitHub Pages</span></div>
+        <div class="proj-tags"><span class="p-tag">HTML/CSS</span><span class="p-tag">JavaScript</span><span class="p-tag">Responsive</span><span class="p-tag">SEO</span></div>
         <div class="proj-foot">
-          <span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Live</span>
-          <a href="https://ikhanemails-stack.github.io/AS-Automation-New/" target="_blank" rel="noopener" class="proj-live"><i class="fas fa-external-link-alt"></i>Visit Website</a>
+          <span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Live — This Site</span>
+          <a href="#home" class="proj-live"><i class="fas fa-eye"></i>You're On It</a>
         </div>
       </div>
     </div>
     <!-- CCTV -->
     <div class="proj-card" data-cat="it">
       <div class="proj-preview" style="background:linear-gradient(135deg,#0a0a0a,#1a1a1a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/cctv.jpg" alt="CCTV camera installation" onerror="this.remove()" loading="lazy">
         <i class="fas fa-video" style="font-size:40px;color:var(--gold)"></i>
         <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:var(--gold)">32-Channel CCTV</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Commercial Complex</div></div>
         <div class="proj-type-badge" style="background:rgba(245,158,11,.85);color:#1a1200">Security</div>
@@ -592,23 +546,10 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
         <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
       </div>
     </div>
-    <!-- ELV -->
-    <div class="proj-card" data-cat="network">
-      <div class="proj-preview" style="background:linear-gradient(135deg,#0a0a1f,#121228);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
-        <i class="fas fa-network-wired" style="font-size:40px;color:#818cf8"></i>
-        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#818cf8">ELV & Cat6A Cabling</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Multi-Floor Office Tower</div></div>
-        <div class="proj-type-badge" style="background:rgba(129,140,248,.85);color:#0a0a1f">ELV</div>
-      </div>
-      <div class="proj-body">
-        <h3>ELV & Structured Cabling</h3>
-        <p>Complete ELV infrastructure for a multi-floor office tower — Cat6A structured cabling, fiber backbone and enterprise WiFi access point deployment.</p>
-        <div class="proj-tags"><span class="p-tag">Cat6A</span><span class="p-tag">Fiber Optic</span><span class="p-tag">Enterprise WiFi</span></div>
-        <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
-      </div>
-    </div>
     <!-- ACCESS CONTROL -->
     <div class="proj-card" data-cat="it">
       <div class="proj-preview" style="background:linear-gradient(135deg,#1a0a1f,#2a1030);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/access-control.jpg" alt="Biometric access control device" onerror="this.remove()" loading="lazy">
         <i class="fas fa-fingerprint" style="font-size:40px;color:#f43f5e"></i>
         <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#f43f5e">Biometric Access Control</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Factory, Bahrain</div></div>
         <div class="proj-type-badge" style="background:rgba(244,63,94,.85);color:#1a0a1f">Access</div>
@@ -620,9 +561,40 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
         <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
       </div>
     </div>
+    <!-- FIRE ALARM -->
+    <div class="proj-card" data-cat="it">
+      <div class="proj-preview" style="background:linear-gradient(135deg,#2a0a05,#3a1005);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/fire-alarm.jpg" alt="Fire alarm control panel" onerror="this.remove()" loading="lazy">
+        <i class="fas fa-fire-alt" style="font-size:40px;color:#f97316;filter:drop-shadow(0 0 10px rgba(249,115,22,.5))"></i>
+        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#f97316">Fire Alarm & Safety System</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Warehouse, Bahrain</div></div>
+        <div class="proj-type-badge" style="background:rgba(249,115,22,.85);color:#2a0a05">Fire Safety</div>
+      </div>
+      <div class="proj-body">
+        <h3>Addressable Fire Alarm Installation</h3>
+        <p>Certified addressable fire detection and alarm system for a commercial warehouse — smoke/heat detectors, fire panel, emergency lighting and sounders installed to Bahrain civil defence standards.</p>
+        <div class="proj-tags"><span class="p-tag">Fire Panel</span><span class="p-tag">Smoke Detectors</span><span class="p-tag">Civil Defence</span></div>
+        <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
+      </div>
+    </div>
+    <!-- ELV -->
+    <div class="proj-card" data-cat="network">
+      <div class="proj-preview" style="background:linear-gradient(135deg,#0a0a1f,#121228);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/elv-cabling.jpg" alt="Structured cabling installation" onerror="this.remove()" loading="lazy">
+        <i class="fas fa-network-wired" style="font-size:40px;color:#818cf8"></i>
+        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#818cf8">ELV & Cat6A Cabling</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Multi-Floor Office Tower</div></div>
+        <div class="proj-type-badge" style="background:rgba(129,140,248,.85);color:#0a0a1f">ELV</div>
+      </div>
+      <div class="proj-body">
+        <h3>ELV & Structured Cabling</h3>
+        <p>Complete ELV infrastructure for a multi-floor office tower — Cat6A structured cabling, fiber backbone and enterprise WiFi access point deployment.</p>
+        <div class="proj-tags"><span class="p-tag">Cat6A</span><span class="p-tag">Fiber Optic</span><span class="p-tag">Enterprise WiFi</span></div>
+        <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
+      </div>
+    </div>
     <!-- NETWORKING -->
     <div class="proj-card" data-cat="network">
       <div class="proj-preview" style="background:linear-gradient(135deg,#00141f,#002830);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/server-room.jpg" alt="Server room and network rack" onerror="this.remove()" loading="lazy">
         <i class="fas fa-server" style="font-size:40px;color:#06b6d4"></i>
         <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#06b6d4">Server Room & Network Setup</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Corporate Office</div></div>
         <div class="proj-type-badge" style="background:rgba(6,182,212,.85);color:#00141f">Network</div>
@@ -631,6 +603,21 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
         <h3>Server Room & Network Setup</h3>
         <p>Full server room build-out with structured racking, firewall/VPN configuration and LAN/WAN setup for a corporate office.</p>
         <div class="proj-tags"><span class="p-tag">Servers</span><span class="p-tag">Firewall/VPN</span><span class="p-tag">LAN/WAN</span></div>
+        <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
+      </div>
+    </div>
+    <!-- ENTERPRISE WIFI -->
+    <div class="proj-card" data-cat="network">
+      <div class="proj-preview" style="background:linear-gradient(135deg,#001a14,#00301f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+        <img class="proj-photo" src="images/wifi-networking.jpg" alt="Enterprise WiFi access point" onerror="this.remove()" loading="lazy">
+        <i class="fas fa-wifi" style="font-size:40px;color:#22c55e;filter:drop-shadow(0 0 10px rgba(34,197,94,.5))"></i>
+        <div style="text-align:center"><div style="font-size:14px;font-weight:700;color:#22c55e">Enterprise WiFi Rollout</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Retail Chain, Bahrain</div></div>
+        <div class="proj-type-badge" style="background:rgba(34,197,94,.85);color:#001a14">WiFi</div>
+      </div>
+      <div class="proj-body">
+        <h3>Multi-Branch WiFi & Structured Cabling</h3>
+        <p>Enterprise-grade WiFi 6 access point deployment with structured Cat6 cabling across multiple retail branches, giving seamless coverage and centralized network management from one dashboard.</p>
+        <div class="proj-tags"><span class="p-tag">WiFi 6</span><span class="p-tag">Cat6 Cabling</span><span class="p-tag">Multi-Branch</span></div>
         <div class="proj-foot"><span class="proj-status"><i class="fas fa-circle" style="font-size:8px"></i>Completed</span><span class="proj-loc">Bahrain</span></div>
       </div>
     </div>
@@ -722,6 +709,64 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
   <p class="offer-note"><i class="fas fa-info-circle" style="color:var(--a);margin-right:6px"></i>Websites & POS systems are delivered fully online for any country. INR prices are approximate and follow the current BHD–INR exchange rate. On-site CCTV/ELV installation is available in Bahrain.</p>
 </div></section>
 
+<!-- ABOUT -->
+<section class="about" id="about"><div class="container"><div class="about-grid">
+  <div class="about-stats">
+    <div class="astat"><div class="num">500+</div><div class="lbl">Projects</div></div>
+    <div class="astat gld"><div class="num">15+</div><div class="lbl">Services</div></div>
+    <div class="astat grn"><div class="num">10+</div><div class="lbl">Years</div></div>
+    <div class="astat"><div class="num">24/7</div><div class="lbl">Support</div></div>
+  </div>
+  <div class="about-content">
+    <div class="sec-lbl">About Third Eye</div>
+    <h2 class="sec-title">Your Complete <span>IT Partner</span> in Bahrain</h2>
+    <p>Third Eye Computer Solutions is a leading IT and security systems company based in the Kingdom of Bahrain, founded by a team of industry partners including <strong style="color:#fff">Seemon</strong>. We provide comprehensive technology solutions to businesses, government entities, hotels, schools and commercial properties across Bahrain.</p>
+    <p>Our expertise spans CCTV surveillance, ELV systems, structured cabling, networking, access control, fire alarm systems, website & POS development and full-range IT support — all delivered with a commitment to quality, reliability and excellent after-sales care, led on the ground by our Project Manager <strong style="color:#fff">Imran Khan</strong>.</p>
+    <div class="feat-grid">
+      <div class="feat"><i class="fas fa-certificate"></i>Licensed & Certified</div>
+      <div class="feat"><i class="fas fa-headset"></i>24/7 Support</div>
+      <div class="feat"><i class="fas fa-tools"></i>Expert Technicians</div>
+      <div class="feat"><i class="fas fa-handshake"></i>Trusted Partners</div>
+    </div>
+  </div>
+</div></div></section>
+<!-- SERVICES -->
+
+<!-- ===== PORTFOLIO / PROJECT MANAGER ===== -->
+<section class="pm-sec" id="portfolio"><div class="container">
+  <div class="pm-grid">
+    <div class="pm-avatar-area">
+      <div class="pm-avatar-wrap">
+        <div class="pm-ring1"></div><div class="pm-ring2"></div>
+        <div class="pm-av">IK</div>
+        <div class="pm-sb pm-sb1"><div class="pm-sb-d" style="background:#22c55e;box-shadow:0 0 8px #22c55e"></div>Web Dev</div>
+        <div class="pm-sb pm-sb2"><div class="pm-sb-d" style="background:var(--a);box-shadow:0 0 8px var(--a)"></div>POS Systems</div>
+        <div class="pm-sb pm-sb3"><div class="pm-sb-d" style="background:var(--gold);box-shadow:0 0 8px var(--gold)"></div>CCTV & ELV</div>
+        <div class="pm-sb pm-sb4"><div class="pm-sb-d" style="background:#818cf8;box-shadow:0 0 8px #818cf8"></div>Networking</div>
+      </div>
+    </div>
+    <div class="pm-content">
+      <div class="sec-lbl">Meet Our Project Manager</div>
+      <h2 class="sec-title">Imran Khan <span>— Project Manager</span></h2>
+      <div class="pm-role">Project Manager · <span id="twpm"></span></div>
+      <p style="color:var(--gray);font-size:15px;line-height:1.9;max-width:560px">Imran Khan works full-time at Third Eye Computer Solutions as Project Manager & Developer, overseeing project delivery for CCTV, ELV, networking and IT installations across Bahrain — while also building custom websites and POS systems for clients as part of Third Eye's development arm.</p>
+      <div class="pm-badges">
+        <div class="pm-badge"><i class="fas fa-check-circle"></i>Ready for Freelance Projects</div>
+        <div class="pm-badge"><i class="fas fa-globe-asia"></i>Bahrain · GCC · India</div>
+        <div class="pm-badge"><i class="fas fa-briefcase"></i>Company-Standard Delivery</div>
+      </div>
+      <div class="hero-btns">
+        <a href="https://api.whatsapp.com/send/?phone=97333557424&type=phone_number&app_absent=0&text=Hello%20Imran%2C%20I%20would%20like%20to%20discuss%20a%20freelance%20project" target="_blank" class="btn-c"><i class="fab fa-whatsapp"></i>Discuss a Project</a>
+        <a href="#projects" class="btn-o"><i class="fas fa-folder-open"></i>View Live Projects</a>
+      </div>
+      <div class="pm-stats">
+        <div class="pm-stat"><h3 class="counter" data-target="40">0</h3><p>Projects Delivered</p></div>
+        <div class="pm-stat"><h3 class="counter" data-target="6">0</h3><p>Core Skills</p></div>
+        <div class="pm-stat"><h3 class="counter" data-target="3">0</h3><p>Countries Served</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
 <section class="svc-sec" id="services"><div class="container">
   <div style="text-align:center;margin-bottom:56px">
     <div class="sec-lbl" style="justify-content:center">Our Services</div>
@@ -744,14 +789,14 @@ footer{background:#00060f;border-top:1px solid rgba(0,255,229,.08);padding:60px 
     <h2 class="sec-title" style="text-align:center">IT <span>Products</span> We Supply</h2>
   </div>
   <div class="prod-grid">
-    <div class="prod-card"><i class="fas fa-camera"></i><h4>IP & CCTV Cameras</h4><p>Hikvision, Dahua security cameras for all environments</p></div>
-    <div class="prod-card"><i class="fas fa-hdd"></i><h4>NVR / DVR Systems</h4><p>Network & digital video recorders with remote viewing</p></div>
-    <div class="prod-card"><i class="fas fa-ethernet"></i><h4>Network Switches</h4><p>Cisco, TP-Link, Ubiquiti managed & unmanaged switches</p></div>
-    <div class="prod-card"><i class="fas fa-wifi"></i><h4>Wireless Access Points</h4><p>Enterprise WiFi 6 for seamless building-wide coverage</p></div>
-    <div class="prod-card"><i class="fas fa-fingerprint"></i><h4>Biometric Devices</h4><p>ZKTeco, Suprema fingerprint & face recognition terminals</p></div>
-    <div class="prod-card"><i class="fas fa-bell"></i><h4>Fire Alarm Panels</h4><p>Conventional & addressable fire alarm control panels</p></div>
-    <div class="prod-card"><i class="fas fa-server"></i><h4>Servers & NAS Storage</h4><p>HP, Dell servers and NAS for business continuity</p></div>
-    <div class="prod-card"><i class="fas fa-shield-alt"></i><h4>UPS Systems</h4><p>APC, Eaton UPS units to protect critical equipment</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#0f766e,#00d4c8)"><img class="prod-photo" src="images/prod-cctv-camera.jpg" alt="IP CCTV camera" onerror="this.remove()" loading="lazy"><i class="fas fa-camera"></i></div><h4>IP & CCTV Cameras</h4><p>Hikvision, Dahua security cameras for all environments</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)"><img class="prod-photo" src="images/prod-nvr-dvr.jpg" alt="NVR DVR recorder" onerror="this.remove()" loading="lazy"><i class="fas fa-hdd"></i></div><h4>NVR / DVR Systems</h4><p>Network & digital video recorders with remote viewing</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#4c1d95,#8b5cf6)"><img class="prod-photo" src="images/prod-network-switch.jpg" alt="Network switch" onerror="this.remove()" loading="lazy"><i class="fas fa-ethernet"></i></div><h4>Network Switches</h4><p>Cisco, TP-Link, Ubiquiti managed & unmanaged switches</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#065f46,#22c55e)"><img class="prod-photo" src="images/prod-wifi-ap.jpg" alt="Wireless access point" onerror="this.remove()" loading="lazy"><i class="fas fa-wifi"></i></div><h4>Wireless Access Points</h4><p>Enterprise WiFi 6 for seamless building-wide coverage</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#831843,#f43f5e)"><img class="prod-photo" src="images/prod-biometric.jpg" alt="Biometric fingerprint device" onerror="this.remove()" loading="lazy"><i class="fas fa-fingerprint"></i></div><h4>Biometric Devices</h4><p>ZKTeco, Suprema fingerprint & face recognition terminals</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#7c2d12,#f97316)"><img class="prod-photo" src="images/prod-fire-panel.jpg" alt="Fire alarm panel" onerror="this.remove()" loading="lazy"><i class="fas fa-bell"></i></div><h4>Fire Alarm Panels</h4><p>Conventional & addressable fire alarm control panels</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#0c4a6e,#06b6d4)"><img class="prod-photo" src="images/prod-server-nas.jpg" alt="Server and NAS storage" onerror="this.remove()" loading="lazy"><i class="fas fa-server"></i></div><h4>Servers & NAS Storage</h4><p>HP, Dell servers and NAS for business continuity</p></div>
+    <div class="prod-card"><div class="prod-visual" style="background:linear-gradient(135deg,#78350f,#eab308)"><img class="prod-photo" src="images/prod-ups.jpg" alt="UPS system" onerror="this.remove()" loading="lazy"><i class="fas fa-shield-alt"></i></div><h4>UPS Systems</h4><p>APC, Eaton UPS units to protect critical equipment</p></div>
   </div>
 </div></section>
 
